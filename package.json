@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "mocha test --recursive -w"
   },
   "repository": {
     "type": "git",
@@ -17,11 +20,18 @@
     "url": "https://github.com/ibrahimalanshor/gwik-app/issues"
   },
   "homepage": "https://github.com/ibrahimalanshor/gwik-app#readme",
+  "dependencies": {
+    "gwik": "^0.0.0"
+  },
   "devDependencies": {
+    "chai": "^4.3.7",
     "eslint": "^8.33.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "prettier": "2.8.3"
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20",
+    "prettier": "2.8.3",
+    "supertest": "^6.3.3"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
