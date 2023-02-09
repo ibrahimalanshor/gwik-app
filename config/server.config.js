@@ -20,4 +20,8 @@ module.exports = {
       process.env.SERVER_STATIC_DIR || 'public'
     ),
   },
+  translation: {
+    defaultLocale: process.env.SERVER_DEFAULT_LOCALE || 'en',
+    defaultFallbackLocale: process.env.SERVER_DEFAULT_FALLBACK_LOCALE || 'en',
+  },
 };
