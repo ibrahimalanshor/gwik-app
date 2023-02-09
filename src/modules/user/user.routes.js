@@ -1,18 +1,15 @@
 const { Router } = require('gwik');
-const uploadMiddleware = require('../../common/middlewares/upload.middleware');
 const UserController = require('./user.controller');
+const UserRequest = require('./requests');
 
 module.exports = [
   new Router('/users').get(UserController.getUsers).build(),
+  new Router('/users')
+    .middleware(UserRequest.create)
+    .post(UserController.createUser)
+    .build(),
   new Router('/users/:id/photo')
-    .middleware(
-      uploadMiddleware({
-        field: 'photo',
-        allowedTypes: ['png', 'PNG', 'jpg'],
-        dir: 'users',
-        getFilename: ({ req, file }) => file.originalname,
-      })
-    )
+    .middleware(UserRequest.updatePhoto)
     .patch(UserController.updateUserPhoto)
     .build(),
 ];
