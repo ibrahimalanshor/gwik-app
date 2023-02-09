@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ibrahimalanshor/gwik-app#readme",
   "dependencies": {
-    "gwik": "^0.0.0"
+    "gwik": "^1.0.2"
   },
   "devDependencies": {
     "chai": "^4.3.7",
