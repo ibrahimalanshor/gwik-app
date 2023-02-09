@@ -1,5 +1,6 @@
 const { Server } = require('gwik');
 const serverConfig = require('./config/server.config');
+const routes = require('./src/routes');
 
 const server = new Server({
   port: serverConfig.port,
@@ -7,5 +8,6 @@ const server = new Server({
 });
 
 server.addStaticRoute(serverConfig.static.path, serverConfig.static.dir);
+server.addRoute(routes);
 
 server.listen();
