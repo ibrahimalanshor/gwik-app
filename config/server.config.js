@@ -9,8 +9,11 @@ require('dotenv').config({
   ),
 });
 
+const port = validatePort(process.env.SERVER_PORT) || 4000;
+
 module.exports = {
-  port: validatePort(process.env.SERVER_PORT) || 4000,
+  port,
+  url: process.env.SERVER_URL || 'http://localhost:4000',
   logging: stringToBoolean(process.env.SERVER_LOGGING) ?? true,
   static: {
     path: process.env.SERVER_STATIC_PATH || '/public',
